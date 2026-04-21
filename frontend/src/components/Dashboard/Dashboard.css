@@ -1,0 +1,165 @@
+/* Dashboard Styles */
+.dashboard-page { display: flex; flex-direction: column; gap: 0; }
+
+.welcome-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(139,92,246,0.1));
+    border: 1px solid rgba(99,102,241,0.2);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 28px;
+}
+.welcome-text h2 { color: white; font-size: 1.3rem; margin: 0 0 4px; }
+.welcome-text p { color: rgba(255,255,255,0.5); margin: 0; font-size: 0.9rem; }
+.welcome-icon { font-size: 2.5rem; }
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 0;
+}
+
+.stat-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: all 0.2s;
+    cursor: default;
+}
+.stat-card:hover {
+    background: rgba(255,255,255,0.07);
+    transform: translateY(-2px);
+    border-color: rgba(255,255,255,0.15);
+}
+
+.stat-icon {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+.stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.45); margin: 0 0 4px; }
+.stat-value { font-size: 1.8rem; font-weight: 700; color: white; margin: 0; }
+.stat-skeleton {
+    width: 60px; height: 28px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 6px;
+    animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* Table Card */
+.table-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    overflow: hidden;
+}
+.table-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.table-header h3 { color: white; margin: 0; font-size: 1rem; font-weight: 600; }
+.table-search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 7px 12px;
+    color: rgba(255,255,255,0.4);
+}
+.table-search input {
+    background: none;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 0.85rem;
+    width: 160px;
+}
+.table-search input::placeholder { color: rgba(255,255,255,0.25); }
+
+.table-wrapper { overflow-x: auto; }
+.attendance-table { width: 100%; border-collapse: collapse; }
+.attendance-table th {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: rgba(255,255,255,0.02);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.attendance-table td {
+    padding: 14px 16px;
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.75);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    transition: background 0.15s;
+}
+.attendance-table tr:hover td { background: rgba(255,255,255,0.03); }
+.attendance-table tr:last-child td { border-bottom: none; }
+
+.row-num { color: rgba(255,255,255,0.3); width: 40px; }
+.student-id { font-family: monospace; color: #a5b4fc; }
+.timestamp { font-size: 0.8rem; color: rgba(255,255,255,0.45); }
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.confidence-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.bar-fill {
+    height: 6px;
+    background: linear-gradient(90deg, #6366f1, #22c55e);
+    border-radius: 3px;
+    min-width: 4px;
+    max-width: 80px;
+    transition: width 0.5s ease;
+}
+.confidence-bar span { font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+
+.table-empty {
+    text-align: center;
+    padding: 48px;
+    color: rgba(255,255,255,0.3);
+}
+.table-empty span { font-size: 2rem; display: block; margin-bottom: 8px; }
+.table-empty p { margin: 0; }
+
+.table-loading { padding: 16px 24px; display: flex; flex-direction: column; gap: 12px; }
+.row-skeleton {
+    height: 44px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    animation: shimmer 1.5s ease-in-out infinite;
+}
+@keyframes shimmer {
+    0%,100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}

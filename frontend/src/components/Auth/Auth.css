@@ -1,0 +1,168 @@
+/* Auth Page Styles */
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(ellipse at 60% 40%, #1a1040 0%, #0d0d1a 60%, #000 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated background particles */
+.auth-bg .particle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.08;
+    animation: float 12s ease-in-out infinite;
+}
+.particle-1 { width: 400px; height: 400px; background: #6366f1; top: -100px; right: -100px; animation-delay: 0s; }
+.particle-2 { width: 300px; height: 300px; background: #8b5cf6; bottom: -80px; left: -80px; animation-delay: 4s; }
+.particle-3 { width: 200px; height: 200px; background: #06b6d4; top: 50%; left: 50%; animation-delay: 8s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-30px) scale(1.05); }
+}
+
+.auth-card {
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 24px;
+    padding: 48px 40px;
+    width: 100%;
+    max-width: 420px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 32px 64px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
+}
+
+.auth-logo {
+    text-align: center;
+    margin-bottom: 32px;
+}
+.logo-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border-radius: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-bottom: 16px;
+    box-shadow: 0 8px 24px rgba(99,102,241,0.4);
+}
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 4px;
+    background: linear-gradient(135deg, #fff, #c4b5fd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.logo-sub { font-size: 0.8rem; color: rgba(255,255,255,0.4); margin: 0; }
+
+.auth-tabs {
+    display: flex;
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    padding: 4px;
+    margin-bottom: 28px;
+}
+.auth-tab {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.auth-tab.active {
+    background: rgba(99,102,241,0.8);
+    color: white;
+    box-shadow: 0 2px 8px rgba(99,102,241,0.4);
+}
+
+.auth-form { display: flex; flex-direction: column; gap: 16px; }
+
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label { font-size: 0.8rem; color: rgba(255,255,255,0.6); font-weight: 500; }
+.form-group input {
+    padding: 12px 16px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    color: white;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.2s;
+}
+.form-group input:focus {
+    border-color: #6366f1;
+    background: rgba(99,102,241,0.1);
+    box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
+}
+.form-group input::placeholder { color: rgba(255,255,255,0.25); }
+
+.btn-primary {
+    margin-top: 8px;
+    padding: 13px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.btn-primary:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(99,102,241,0.5);
+}
+.btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.auth-error {
+    padding: 10px 14px;
+    background: rgba(239,68,68,0.15);
+    border: 1px solid rgba(239,68,68,0.3);
+    border-radius: 8px;
+    color: #f87171;
+    font-size: 0.85rem;
+}
+
+.spinner {
+    width: 18px; height: 18px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.confirm-message { text-align: center; }
+.confirm-icon {
+    width: 60px; height: 60px;
+    background: rgba(34,197,94,0.2);
+    border: 2px solid #22c55e;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #22c55e;
+    margin-bottom: 16px;
+}
+.confirm-message h2 { color: white; margin: 0 0 8px; }
+.confirm-message p { color: rgba(255,255,255,0.5); font-size: 0.9rem; margin-bottom: 24px; }

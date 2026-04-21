@@ -1,0 +1,4 @@
+com\attendai\lambda\FaceRecognitionHandler.class
+com\attendai\lambda\S3Uploader.class
+com\attendai\lambda\RekognitionMatcher.class
+com\attendai\lambda\DynamoDBWriter.class

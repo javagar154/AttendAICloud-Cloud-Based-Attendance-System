@@ -1,0 +1,38 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: attendai-backend
+
+# AWS Configuration (loaded from environment variables)
+aws:
+  region: ${AWS_REGION:us-east-1}
+  s3:
+    bucket-name: ${S3_BUCKET_NAME:attendai-faces-bucket}
+  rekognition:
+    collection-id: ${REKOGNITION_COLLECTION_ID:attendai-faces}
+    confidence-threshold: ${REKOGNITION_CONFIDENCE_THRESHOLD:90.0}
+  dynamodb:
+    table-name: ${DYNAMODB_TABLE_NAME:AttendanceRecords}
+  sns:
+    topic-arn: ${SNS_TOPIC_ARN:}
+  cognito:
+    user-pool-id: ${COGNITO_USER_POOL_ID:}
+    client-id: ${COGNITO_CLIENT_ID:}
+    region: ${AWS_REGION:us-east-1}
+    jwks-url: https://cognito-idp.${AWS_REGION:us-east-1}.amazonaws.com/${COGNITO_USER_POOL_ID:}/.well-known/jwks.json
+  dummy-mode: ${DUMMY_MODE:false}
+
+logging:
+  level:
+    com.attendai: DEBUG
+    software.amazon.awssdk: WARN
+  pattern:
+    console: "%d{HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
